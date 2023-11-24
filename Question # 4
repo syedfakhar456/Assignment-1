@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+bool check_primality(int num) {
+    if (num <= 1) {
+        return false;
+    }
+
+    for (int i = 2; i * i <= num; ++i) {
+        if (num % i == 0) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+int identify_largest_prime(int limit) {
+    if (limit <= 2) {
+        return -1;
+    }
+
+    int largest_prime_so_far = -1;
+    for (int number = limit - 1; number >= 2; --number) {
+        if (check_primality(number)) {
+            largest_prime_so_far = number;
+            break;
+        }
+    }
+
+    return largest_prime_so_far;
+}
+
+int main() {
+    int upper_limit;
+    cout << "Enter a positive integer value N: ";
+    cin >> upper_limit;
+
+    int largest_prime_found = identify_largest_prime(upper_limit);
+    if (largest_prime_found == -1) {
+    cout << "No prime number found less than N" << endl;
+    } else {
+    cout << "The largest prime number less than N is: " << largest_prime_found << endl;
+    }
+
+    return 0;
