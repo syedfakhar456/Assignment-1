@@ -1,0 +1,20 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+  string word1, word2;
+
+  cout << "Enter two words: ";
+  cin >> word1 >> word2;
+
+  if (word1 == word2) {
+    reverse(word1.begin(), word1.end());
+    cout << "Reversed word: " << word1;
+  } else {
+    cout << "The words are not the same.";
+  }
+
+  return 0;
+}
