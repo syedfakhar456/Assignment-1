@@ -1,28 +1,25 @@
 #include <iostream>
 using namespace std;
 
-void bubbleSort(int arr[], int n) {
-    for (int i = 0; i < n - 1; i++)
-        for (int j = 0; j < n - i - 1; j++)
-            if (arr[j] > arr[j + 1])
-                swap(arr[j], arr[j + 1]);
+bool findTriplet(int arr[], int n, int X) {
+    for (int i = 0; i < n - 2; i++)
+        for (int j = i + 1; j < n - 1; j++)
+            for (int k = j + 1; k < n; k++)
+                if (arr[i] + arr[j] + arr[k] == X)
+                    return true;
+    return false;
 }
 
 int main() {
-    int arr[6] = {64, 34, 25, 12, 22, 11};
+    int arr[] = {1, 4, 45, 6, 10, 8};
+    int X = 22;
     int n = sizeof(arr) / sizeof(arr[0]);
+if (findTriplet(arr, n, X)) {
+    cout << "Triplet exists\n";
+} else {
+    cout << "Triplet doesn't exist\n";
+}
 
-    cout << "Original array: ";
-    for (int i = 0; i < n; i++)
-        cout << arr[i] << " ";
-    cout << endl;
-
-    bubbleSort(arr, n);
-
-    cout << "Sorted array: ";
-    for (int i = 0; i < n; i++)
-        cout << arr[i] << " ";
-    cout << endl;
 
     return 0;
 }
