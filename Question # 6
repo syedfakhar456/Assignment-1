@@ -1,0 +1,20 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int numericalValue, dividingFactor;
+    cin >> numericalValue >> dividingFactor;
+
+    if (numericalValue < dividingFactor)
+        return 1;
+
+    int result = 0;
+    while (numericalValue >= dividingFactor) {
+        numericalValue -= dividingFactor;
+        result++;
+    }
+
+    cout << result << endl << numericalValue << endl;
+    return 0;
+}
